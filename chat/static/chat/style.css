@@ -1,0 +1,106 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    display: flex;
+}
+
+menu {
+    border: 1px solid red;
+    height: 100vh;
+    width: 15%;
+    padding: 2rem 0 0 0;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+menu > h1 {
+    font-size: 3rem;
+}
+
+menu > div {
+    margin-top: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+menu > div > a {
+    font-size: 2rem;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 1rem;
+    border: 1px solid red;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+}
+
+main {
+    border: 1px solid red;
+    height: 100vh;
+    width: 85%;
+    padding: 3rem;
+    font-size: 3rem;
+    overflow: hidden;
+}
+
+.messages_div {
+    border: 1px solid red;
+    width: 100%;
+    height: 90%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.send_div {
+    border: 1px solid red;
+    width: 100%;
+    height: 8%;
+    margin-top: 1rem;
+    
+}
+
+.send_div > form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.send_inp {
+    width: 88%;
+    height: 80%;
+    padding: 1rem;
+}
+
+.send_btn {
+    width: 8%;
+    height: 100%;
+}
+
+.message {
+    border: 1px solid yellow;
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.message > p {
+    font-weight: 100;
+    margin-left: 1rem;
+    font-size: 2.8rem;
+}

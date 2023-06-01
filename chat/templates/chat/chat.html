@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'chat/style.css' %}">
+    <title>Chats</title>
+    
+</head>
+<body>
+    <menu>
+        <h1> User Chat </h1>
+        <hr>
+        
+        <h1> 
+            {% if chat.member_1 == user %}  
+                {{ chat.member_2.username }}
+            {% else %}
+                {{ chat.member_1.username }}
+            {% endif %}    
+        </h1>
+        
+        <div>
+            {% for i in user_chats%}
+                {% if i.member_1 == user %}  
+                    <a href="{% url 'chat' i.member_2.id %}">
+                        {{ i.member_2.username }}
+                    </a>
+                {% else %}
+                    <a href="{% url 'chat' i.member_1.id %}">
+                        {{ i.member_1.username }}
+                    </a>
+                {% endif %}
+
+            {% endfor %}
+        </div>
+    
+    </menu>
+
+    <main>
+        <div class = "messages_div" >
+
+            {% for i in chat.messages.all %}
+            <div class = "message">
+                <h3 class = "message_text"> {{ i.sender.username }} --> </h3>
+                <p> {{ i.message }} </p>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% if chat %}
+        <div class = "send_div">
+            <form method = "post">
+                {% csrf_token %}
+                <input name = "new_message" class = "send_inp" type="text" placeholder = "Message.. ">
+                <button class = "send_btn"> Send  </button>
+            </form>
+        </div>
+        {% endif %}
+    </main>
+
+</body>
+</html>
